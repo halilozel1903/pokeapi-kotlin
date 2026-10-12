@@ -1,0 +1,263 @@
+{
+  "damage_relations": {
+    "double_damage_from": [
+      {
+        "name": "flying",
+        "url": "https://pokeapi.co/api/v2/type/3/"
+      },
+      {
+        "name": "rock",
+        "url": "https://pokeapi.co/api/v2/type/6/"
+      },
+      {
+        "name": "fire",
+        "url": "https://pokeapi.co/api/v2/type/10/"
+      }
+    ],
+    "double_damage_to": [
+      {
+        "name": "grass",
+        "url": "https://pokeapi.co/api/v2/type/12/"
+      },
+      {
+        "name": "psychic",
+        "url": "https://pokeapi.co/api/v2/type/14/"
+      },
+      {
+        "name": "dark",
+        "url": "https://pokeapi.co/api/v2/type/17/"
+      }
+    ],
+    "half_damage_from": [
+      {
+        "name": "fighting",
+        "url": "https://pokeapi.co/api/v2/type/2/"
+      },
+      {
+        "name": "ground",
+        "url": "https://pokeapi.co/api/v2/type/5/"
+      },
+      {
+        "name": "grass",
+        "url": "https://pokeapi.co/api/v2/type/12/"
+      }
+    ],
+    "half_damage_to": [
+      {
+        "name": "fire",
+        "url": "https://pokeapi.co/api/v2/type/10/"
+      },
+      {
+        "name": "fighting",
+        "url": "https://pokeapi.co/api/v2/type/2/"
+      },
+      {
+        "name": "poison",
+        "url": "https://pokeapi.co/api/v2/type/4/"
+      },
+      {
+        "name": "flying",
+        "url": "https://pokeapi.co/api/v2/type/3/"
+      },
+      {
+        "name": "ghost",
+        "url": "https://pokeapi.co/api/v2/type/8/"
+      },
+      {
+        "name": "steel",
+        "url": "https://pokeapi.co/api/v2/type/9/"
+      },
+      {
+        "name": "fairy",
+        "url": "https://pokeapi.co/api/v2/type/18/"
+      }
+    ],
+    "no_damage_from": [],
+    "no_damage_to": []
+  },
+  "game_indices": [
+    {
+      "game_index": 6,
+      "generation": {
+        "name": "generation-i",
+        "url": "https://pokeapi.co/api/v2/generation/1/"
+      }
+    },
+    {
+      "game_index": 6,
+      "generation": {
+        "name": "generation-ii",
+        "url": "https://pokeapi.co/api/v2/generation/2/"
+      }
+    },
+    {
+      "game_index": 6,
+      "generation": {
+        "name": "generation-iii",
+        "url": "https://pokeapi.co/api/v2/generation/3/"
+      }
+    },
+    {
+      "game_index": 6,
+      "generation": {
+        "name": "generation-iv",
+        "url": "https://pokeapi.co/api/v2/generation/4/"
+      }
+    },
+    {
+      "game_index": 6,
+      "generation": {
+        "name": "generation-v",
+        "url": "https://pokeapi.co/api/v2/generation/5/"
+      }
+    },
+    {
+      "game_index": 6,
+      "generation": {
+        "name": "generation-vi",
+        "url": "https://pokeapi.co/api/v2/generation/6/"
+      }
+    }
+  ],
+  "generation": {
+    "name": "generation-i",
+    "url": "https://pokeapi.co/api/v2/generation/1/"
+  },
+  "id": 7,
+  "move_damage_class": {
+    "name": "physical",
+    "url": "https://pokeapi.co/api/v2/move-damage-class/2/"
+  },
+  "moves": [
+    {
+      "name": "twineedle",
+      "url": "https://pokeapi.co/api/v2/move/41/"
+    },
+    {
+      "name": "pin-missile",
+      "url": "https://pokeapi.co/api/v2/move/42/"
+    },
+    {
+      "name": "leech-life",
+      "url": "https://pokeapi.co/api/v2/move/141/"
+    }
+  ],
+  "name": "bug",
+  "names": [
+    {
+      "language": {
+        "name": "ja-Hrkt",
+        "url": "https://pokeapi.co/api/v2/language/1/"
+      },
+      "name": "むし"
+    },
+    {
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "name": "Insecte"
+    },
+    {
+      "language": {
+        "name": "de",
+        "url": "https://pokeapi.co/api/v2/language/6/"
+      },
+      "name": "Käfer"
+    },
+    {
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "name": "Bug"
+    }
+  ],
+  "past_damage_relations": [],
+  "pokemon": [
+    {
+      "pokemon": {
+        "name": "caterpie",
+        "url": "https://pokeapi.co/api/v2/pokemon/10/"
+      },
+      "slot": 1
+    },
+    {
+      "pokemon": {
+        "name": "metapod",
+        "url": "https://pokeapi.co/api/v2/pokemon/11/"
+      },
+      "slot": 1
+    },
+    {
+      "pokemon": {
+        "name": "butterfree",
+        "url": "https://pokeapi.co/api/v2/pokemon/12/"
+      },
+      "slot": 1
+    },
+    {
+      "pokemon": {
+        "name": "weedle",
+        "url": "https://pokeapi.co/api/v2/pokemon/13/"
+      },
+      "slot": 1
+    },
+    {
+      "pokemon": {
+        "name": "kakuna",
+        "url": "https://pokeapi.co/api/v2/pokemon/14/"
+      },
+      "slot": 1
+    },
+    {
+      "pokemon": {
+        "name": "beedrill",
+        "url": "https://pokeapi.co/api/v2/pokemon/15/"
+      },
+      "slot": 1
+    },
+    {
+      "pokemon": {
+        "name": "paras",
+        "url": "https://pokeapi.co/api/v2/pokemon/46/"
+      },
+      "slot": 1
+    },
+    {
+      "pokemon": {
+        "name": "parasect",
+        "url": "https://pokeapi.co/api/v2/pokemon/47/"
+      },
+      "slot": 1
+    },
+    {
+      "pokemon": {
+        "name": "venonat",
+        "url": "https://pokeapi.co/api/v2/pokemon/48/"
+      },
+      "slot": 1
+    },
+    {
+      "pokemon": {
+        "name": "venomoth",
+        "url": "https://pokeapi.co/api/v2/pokemon/49/"
+      },
+      "slot": 1
+    },
+    {
+      "pokemon": {
+        "name": "scyther",
+        "url": "https://pokeapi.co/api/v2/pokemon/123/"
+      },
+      "slot": 1
+    },
+    {
+      "pokemon": {
+        "name": "pinsir",
+        "url": "https://pokeapi.co/api/v2/pokemon/127/"
+      },
+      "slot": 1
+    }
+  ]
+}

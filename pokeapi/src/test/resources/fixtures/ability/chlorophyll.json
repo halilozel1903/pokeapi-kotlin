@@ -1,0 +1,82 @@
+{
+  "effect_changes": [],
+  "effect_entries": [
+    {
+      "effect": "This Pokémon's Speed is doubled during strong sunlight.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "short_effect": "Doubles Speed during strong sunlight."
+    }
+  ],
+  "flavor_text_entries": [
+    {
+      "flavor_text": "Boosts the Pokémon’s Speed stat in harsh sunlight.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "scarlet-violet",
+        "url": "https://pokeapi.co/api/v2/version-group/25/"
+      }
+    }
+  ],
+  "generation": {
+    "name": "generation-iii",
+    "url": "https://pokeapi.co/api/v2/generation/3/"
+  },
+  "id": 34,
+  "is_main_series": true,
+  "name": "chlorophyll",
+  "names": [
+    {
+      "language": {
+        "name": "ja-Hrkt",
+        "url": "https://pokeapi.co/api/v2/language/1/"
+      },
+      "name": "ようりょくそ"
+    },
+    {
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "name": "Chlorophylle"
+    },
+    {
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "name": "Chlorophyll"
+    }
+  ],
+  "pokemon": [
+    {
+      "is_hidden": true,
+      "pokemon": {
+        "name": "bulbasaur",
+        "url": "https://pokeapi.co/api/v2/pokemon/1/"
+      },
+      "slot": 3
+    },
+    {
+      "is_hidden": false,
+      "pokemon": {
+        "name": "oddish",
+        "url": "https://pokeapi.co/api/v2/pokemon/43/"
+      },
+      "slot": 1
+    },
+    {
+      "is_hidden": false,
+      "pokemon": {
+        "name": "bellsprout",
+        "url": "https://pokeapi.co/api/v2/pokemon/69/"
+      },
+      "slot": 1
+    }
+  ]
+}

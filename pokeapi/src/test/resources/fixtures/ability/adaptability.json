@@ -1,0 +1,74 @@
+{
+  "effect_changes": [],
+  "effect_entries": [
+    {
+      "effect": "This Pokémon's moves have 2× power if they're the same type as the Pokémon, rather than the usual 1.5×.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "short_effect": "Increases the same-type attack bonus from 1.5× to 2×."
+    }
+  ],
+  "flavor_text_entries": [
+    {
+      "flavor_text": "Powers up moves of the same type\nas the Pokémon.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "scarlet-violet",
+        "url": "https://pokeapi.co/api/v2/version-group/25/"
+      }
+    }
+  ],
+  "generation": {
+    "name": "generation-iv",
+    "url": "https://pokeapi.co/api/v2/generation/4/"
+  },
+  "id": 91,
+  "is_main_series": true,
+  "name": "adaptability",
+  "names": [
+    {
+      "language": {
+        "name": "ja-Hrkt",
+        "url": "https://pokeapi.co/api/v2/language/1/"
+      },
+      "name": "てきおうりょく"
+    },
+    {
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "name": "Adaptabilité"
+    },
+    {
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "name": "Adaptability"
+    }
+  ],
+  "pokemon": [
+    {
+      "is_hidden": false,
+      "pokemon": {
+        "name": "eevee",
+        "url": "https://pokeapi.co/api/v2/pokemon/133/"
+      },
+      "slot": 2
+    },
+    {
+      "is_hidden": true,
+      "pokemon": {
+        "name": "feebas",
+        "url": "https://pokeapi.co/api/v2/pokemon/349/"
+      },
+      "slot": 3
+    }
+  ]
+}

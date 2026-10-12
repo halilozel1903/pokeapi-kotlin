@@ -1,0 +1,223 @@
+{
+  "damage_relations": {
+    "double_damage_from": [
+      {
+        "name": "ground",
+        "url": "https://pokeapi.co/api/v2/type/5/"
+      }
+    ],
+    "double_damage_to": [
+      {
+        "name": "water",
+        "url": "https://pokeapi.co/api/v2/type/11/"
+      },
+      {
+        "name": "flying",
+        "url": "https://pokeapi.co/api/v2/type/3/"
+      }
+    ],
+    "half_damage_from": [
+      {
+        "name": "flying",
+        "url": "https://pokeapi.co/api/v2/type/3/"
+      },
+      {
+        "name": "steel",
+        "url": "https://pokeapi.co/api/v2/type/9/"
+      },
+      {
+        "name": "electric",
+        "url": "https://pokeapi.co/api/v2/type/13/"
+      }
+    ],
+    "half_damage_to": [
+      {
+        "name": "electric",
+        "url": "https://pokeapi.co/api/v2/type/13/"
+      },
+      {
+        "name": "grass",
+        "url": "https://pokeapi.co/api/v2/type/12/"
+      },
+      {
+        "name": "dragon",
+        "url": "https://pokeapi.co/api/v2/type/16/"
+      }
+    ],
+    "no_damage_from": [],
+    "no_damage_to": [
+      {
+        "name": "ground",
+        "url": "https://pokeapi.co/api/v2/type/5/"
+      }
+    ]
+  },
+  "game_indices": [
+    {
+      "game_index": 12,
+      "generation": {
+        "name": "generation-i",
+        "url": "https://pokeapi.co/api/v2/generation/1/"
+      }
+    },
+    {
+      "game_index": 12,
+      "generation": {
+        "name": "generation-ii",
+        "url": "https://pokeapi.co/api/v2/generation/2/"
+      }
+    },
+    {
+      "game_index": 12,
+      "generation": {
+        "name": "generation-iii",
+        "url": "https://pokeapi.co/api/v2/generation/3/"
+      }
+    },
+    {
+      "game_index": 12,
+      "generation": {
+        "name": "generation-iv",
+        "url": "https://pokeapi.co/api/v2/generation/4/"
+      }
+    },
+    {
+      "game_index": 12,
+      "generation": {
+        "name": "generation-v",
+        "url": "https://pokeapi.co/api/v2/generation/5/"
+      }
+    },
+    {
+      "game_index": 12,
+      "generation": {
+        "name": "generation-vi",
+        "url": "https://pokeapi.co/api/v2/generation/6/"
+      }
+    }
+  ],
+  "generation": {
+    "name": "generation-i",
+    "url": "https://pokeapi.co/api/v2/generation/1/"
+  },
+  "id": 13,
+  "move_damage_class": {
+    "name": "special",
+    "url": "https://pokeapi.co/api/v2/move-damage-class/3/"
+  },
+  "moves": [
+    {
+      "name": "thunder-punch",
+      "url": "https://pokeapi.co/api/v2/move/9/"
+    },
+    {
+      "name": "thunder-shock",
+      "url": "https://pokeapi.co/api/v2/move/84/"
+    },
+    {
+      "name": "thunderbolt",
+      "url": "https://pokeapi.co/api/v2/move/85/"
+    },
+    {
+      "name": "thunder",
+      "url": "https://pokeapi.co/api/v2/move/87/"
+    }
+  ],
+  "name": "electric",
+  "names": [
+    {
+      "language": {
+        "name": "ja-Hrkt",
+        "url": "https://pokeapi.co/api/v2/language/1/"
+      },
+      "name": "でんき"
+    },
+    {
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "name": "Électrik"
+    },
+    {
+      "language": {
+        "name": "de",
+        "url": "https://pokeapi.co/api/v2/language/6/"
+      },
+      "name": "Elektro"
+    },
+    {
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "name": "Electric"
+    }
+  ],
+  "past_damage_relations": [],
+  "pokemon": [
+    {
+      "pokemon": {
+        "name": "pikachu",
+        "url": "https://pokeapi.co/api/v2/pokemon/25/"
+      },
+      "slot": 1
+    },
+    {
+      "pokemon": {
+        "name": "raichu",
+        "url": "https://pokeapi.co/api/v2/pokemon/26/"
+      },
+      "slot": 1
+    },
+    {
+      "pokemon": {
+        "name": "magnemite",
+        "url": "https://pokeapi.co/api/v2/pokemon/81/"
+      },
+      "slot": 1
+    },
+    {
+      "pokemon": {
+        "name": "magneton",
+        "url": "https://pokeapi.co/api/v2/pokemon/82/"
+      },
+      "slot": 1
+    },
+    {
+      "pokemon": {
+        "name": "voltorb",
+        "url": "https://pokeapi.co/api/v2/pokemon/100/"
+      },
+      "slot": 1
+    },
+    {
+      "pokemon": {
+        "name": "electrode",
+        "url": "https://pokeapi.co/api/v2/pokemon/101/"
+      },
+      "slot": 1
+    },
+    {
+      "pokemon": {
+        "name": "electabuzz",
+        "url": "https://pokeapi.co/api/v2/pokemon/125/"
+      },
+      "slot": 1
+    },
+    {
+      "pokemon": {
+        "name": "jolteon",
+        "url": "https://pokeapi.co/api/v2/pokemon/135/"
+      },
+      "slot": 1
+    },
+    {
+      "pokemon": {
+        "name": "zapdos",
+        "url": "https://pokeapi.co/api/v2/pokemon/145/"
+      },
+      "slot": 1
+    }
+  ]
+}

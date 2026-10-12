@@ -1,0 +1,301 @@
+{
+  "damage_relations": {
+    "double_damage_from": [
+      {
+        "name": "rock",
+        "url": "https://pokeapi.co/api/v2/type/6/"
+      },
+      {
+        "name": "electric",
+        "url": "https://pokeapi.co/api/v2/type/13/"
+      },
+      {
+        "name": "ice",
+        "url": "https://pokeapi.co/api/v2/type/15/"
+      }
+    ],
+    "double_damage_to": [
+      {
+        "name": "grass",
+        "url": "https://pokeapi.co/api/v2/type/12/"
+      },
+      {
+        "name": "fighting",
+        "url": "https://pokeapi.co/api/v2/type/2/"
+      },
+      {
+        "name": "bug",
+        "url": "https://pokeapi.co/api/v2/type/7/"
+      }
+    ],
+    "half_damage_from": [
+      {
+        "name": "fighting",
+        "url": "https://pokeapi.co/api/v2/type/2/"
+      },
+      {
+        "name": "bug",
+        "url": "https://pokeapi.co/api/v2/type/7/"
+      },
+      {
+        "name": "grass",
+        "url": "https://pokeapi.co/api/v2/type/12/"
+      }
+    ],
+    "half_damage_to": [
+      {
+        "name": "electric",
+        "url": "https://pokeapi.co/api/v2/type/13/"
+      },
+      {
+        "name": "rock",
+        "url": "https://pokeapi.co/api/v2/type/6/"
+      },
+      {
+        "name": "steel",
+        "url": "https://pokeapi.co/api/v2/type/9/"
+      }
+    ],
+    "no_damage_from": [
+      {
+        "name": "ground",
+        "url": "https://pokeapi.co/api/v2/type/5/"
+      }
+    ],
+    "no_damage_to": []
+  },
+  "game_indices": [
+    {
+      "game_index": 2,
+      "generation": {
+        "name": "generation-i",
+        "url": "https://pokeapi.co/api/v2/generation/1/"
+      }
+    },
+    {
+      "game_index": 2,
+      "generation": {
+        "name": "generation-ii",
+        "url": "https://pokeapi.co/api/v2/generation/2/"
+      }
+    },
+    {
+      "game_index": 2,
+      "generation": {
+        "name": "generation-iii",
+        "url": "https://pokeapi.co/api/v2/generation/3/"
+      }
+    },
+    {
+      "game_index": 2,
+      "generation": {
+        "name": "generation-iv",
+        "url": "https://pokeapi.co/api/v2/generation/4/"
+      }
+    },
+    {
+      "game_index": 2,
+      "generation": {
+        "name": "generation-v",
+        "url": "https://pokeapi.co/api/v2/generation/5/"
+      }
+    },
+    {
+      "game_index": 2,
+      "generation": {
+        "name": "generation-vi",
+        "url": "https://pokeapi.co/api/v2/generation/6/"
+      }
+    }
+  ],
+  "generation": {
+    "name": "generation-i",
+    "url": "https://pokeapi.co/api/v2/generation/1/"
+  },
+  "id": 3,
+  "move_damage_class": {
+    "name": "physical",
+    "url": "https://pokeapi.co/api/v2/move-damage-class/2/"
+  },
+  "moves": [
+    {
+      "name": "gust",
+      "url": "https://pokeapi.co/api/v2/move/16/"
+    },
+    {
+      "name": "wing-attack",
+      "url": "https://pokeapi.co/api/v2/move/17/"
+    },
+    {
+      "name": "fly",
+      "url": "https://pokeapi.co/api/v2/move/19/"
+    }
+  ],
+  "name": "flying",
+  "names": [
+    {
+      "language": {
+        "name": "ja-Hrkt",
+        "url": "https://pokeapi.co/api/v2/language/1/"
+      },
+      "name": "ひこう"
+    },
+    {
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "name": "Vol"
+    },
+    {
+      "language": {
+        "name": "de",
+        "url": "https://pokeapi.co/api/v2/language/6/"
+      },
+      "name": "Flug"
+    },
+    {
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "name": "Flying"
+    }
+  ],
+  "past_damage_relations": [],
+  "pokemon": [
+    {
+      "pokemon": {
+        "name": "charizard",
+        "url": "https://pokeapi.co/api/v2/pokemon/6/"
+      },
+      "slot": 2
+    },
+    {
+      "pokemon": {
+        "name": "butterfree",
+        "url": "https://pokeapi.co/api/v2/pokemon/12/"
+      },
+      "slot": 2
+    },
+    {
+      "pokemon": {
+        "name": "pidgey",
+        "url": "https://pokeapi.co/api/v2/pokemon/16/"
+      },
+      "slot": 2
+    },
+    {
+      "pokemon": {
+        "name": "pidgeotto",
+        "url": "https://pokeapi.co/api/v2/pokemon/17/"
+      },
+      "slot": 2
+    },
+    {
+      "pokemon": {
+        "name": "pidgeot",
+        "url": "https://pokeapi.co/api/v2/pokemon/18/"
+      },
+      "slot": 2
+    },
+    {
+      "pokemon": {
+        "name": "spearow",
+        "url": "https://pokeapi.co/api/v2/pokemon/21/"
+      },
+      "slot": 2
+    },
+    {
+      "pokemon": {
+        "name": "fearow",
+        "url": "https://pokeapi.co/api/v2/pokemon/22/"
+      },
+      "slot": 2
+    },
+    {
+      "pokemon": {
+        "name": "zubat",
+        "url": "https://pokeapi.co/api/v2/pokemon/41/"
+      },
+      "slot": 2
+    },
+    {
+      "pokemon": {
+        "name": "golbat",
+        "url": "https://pokeapi.co/api/v2/pokemon/42/"
+      },
+      "slot": 2
+    },
+    {
+      "pokemon": {
+        "name": "farfetchd",
+        "url": "https://pokeapi.co/api/v2/pokemon/83/"
+      },
+      "slot": 2
+    },
+    {
+      "pokemon": {
+        "name": "doduo",
+        "url": "https://pokeapi.co/api/v2/pokemon/84/"
+      },
+      "slot": 2
+    },
+    {
+      "pokemon": {
+        "name": "dodrio",
+        "url": "https://pokeapi.co/api/v2/pokemon/85/"
+      },
+      "slot": 2
+    },
+    {
+      "pokemon": {
+        "name": "scyther",
+        "url": "https://pokeapi.co/api/v2/pokemon/123/"
+      },
+      "slot": 2
+    },
+    {
+      "pokemon": {
+        "name": "gyarados",
+        "url": "https://pokeapi.co/api/v2/pokemon/130/"
+      },
+      "slot": 2
+    },
+    {
+      "pokemon": {
+        "name": "aerodactyl",
+        "url": "https://pokeapi.co/api/v2/pokemon/142/"
+      },
+      "slot": 2
+    },
+    {
+      "pokemon": {
+        "name": "articuno",
+        "url": "https://pokeapi.co/api/v2/pokemon/144/"
+      },
+      "slot": 2
+    },
+    {
+      "pokemon": {
+        "name": "zapdos",
+        "url": "https://pokeapi.co/api/v2/pokemon/145/"
+      },
+      "slot": 2
+    },
+    {
+      "pokemon": {
+        "name": "moltres",
+        "url": "https://pokeapi.co/api/v2/pokemon/146/"
+      },
+      "slot": 2
+    },
+    {
+      "pokemon": {
+        "name": "dragonite",
+        "url": "https://pokeapi.co/api/v2/pokemon/149/"
+      },
+      "slot": 2
+    }
+  ]
+}

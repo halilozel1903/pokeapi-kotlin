@@ -1,0 +1,108 @@
+{
+  "attributes": [
+    {
+      "name": "countable",
+      "url": "https://pokeapi.co/api/v2/item-attribute/1/"
+    },
+    {
+      "name": "consumable",
+      "url": "https://pokeapi.co/api/v2/item-attribute/2/"
+    },
+    {
+      "name": "usable-overworld",
+      "url": "https://pokeapi.co/api/v2/item-attribute/3/"
+    },
+    {
+      "name": "holdable",
+      "url": "https://pokeapi.co/api/v2/item-attribute/5/"
+    }
+  ],
+  "baby_trigger_for": null,
+  "category": {
+    "name": "evolution",
+    "url": "https://pokeapi.co/api/v2/item-category/10/"
+  },
+  "cost": 3000,
+  "effect_entries": [
+    {
+      "effect": "Used on a party Pokémon\n:   Evolves a Eevee into Jolteon, a Pikachu into Raichu, or a Eelektrik into Eelektross.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "short_effect": "Evolves an Eelektrik into Eelektross, an Eevee into Jolteon, or a Pikachu into Raichu."
+    }
+  ],
+  "fling_effect": null,
+  "fling_power": 30,
+  "flavor_text_entries": [
+    {
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "text": "A peculiar stone\nthat makes certain\nspecies of POKéMON\nevolve. It is\nshaped like a\nthunderbolt.",
+      "version_group": {
+        "name": "ruby-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/5/"
+      }
+    },
+    {
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "text": "A peculiar stone that can make certain species\nof Pokémon evolve. It has a distinct thunderbolt pattern.",
+      "version_group": {
+        "name": "scarlet-violet",
+        "url": "https://pokeapi.co/api/v2/version-group/25/"
+      }
+    }
+  ],
+  "game_indices": [
+    {
+      "game_index": 33,
+      "generation": {
+        "name": "generation-i",
+        "url": "https://pokeapi.co/api/v2/generation/1/"
+      }
+    },
+    {
+      "game_index": 96,
+      "generation": {
+        "name": "generation-iii",
+        "url": "https://pokeapi.co/api/v2/generation/3/"
+      }
+    }
+  ],
+  "held_by_pokemon": [],
+  "id": 83,
+  "machines": [],
+  "name": "thunder-stone",
+  "names": [
+    {
+      "language": {
+        "name": "ja-Hrkt",
+        "url": "https://pokeapi.co/api/v2/language/1/"
+      },
+      "name": "かみなりのいし"
+    },
+    {
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "name": "Pierre Foudre"
+    },
+    {
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "name": "Thunder Stone"
+    }
+  ],
+  "sprites": {
+    "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/thunder-stone.png"
+  }
+}
