@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.material3.MaterialTheme
@@ -33,17 +32,14 @@ import androidx.compose.ui.unit.dp
 import io.github.halilozel1903.pokeapi.types.PokeType
 
 /**
- * The whole app: a grid on phones that opens a detail screen, and grid and detail side by side on wide screens.
- * Screenshot [scene]s start on a fixed Pokémon and tab with the bundled demo data.
+ * The whole app: a grid on phones that opens a detail screen, and grid and detail side by side on wide screens,
+ * all loaded from the live PokeAPI. Screenshot [scene]s start on a fixed Pokémon and tab, and report to a
+ * [SceneMonitor] when their data and images have loaded.
  */
 @Composable
-fun PokedexApp(
-    scene: Scene?,
-    liveRepository: () -> PokedexRepository,
-    demoRepository: () -> PokedexRepository,
-) {
-    var demo by rememberSaveable { mutableStateOf(scene != null) }
-    val repository = remember(demo) { if (demo) demoRepository() else liveRepository() }
+fun PokedexApp(scene: Scene?, repository: PokedexRepository) {
+    val monitor = remember(scene) { scene?.let { SceneMonitor(it) } }
+    monitor?.Report()
     var reload by remember { mutableIntStateOf(0) }
     val dex by produceState<Load<List<DexEntry>>>(Load.Loading, repository, reload) {
         value = Load.Loading
@@ -60,7 +56,8 @@ fun PokedexApp(
     }
     val gridState = rememberLazyGridState()
 
-    CompositionLocalProvider(LocalDemoArtwork provides repository.isDemo) {
+    CompositionLocalProvider(LocalSceneMonitor provides monitor) {
+        ReportLoad(dex)
         BoxWithConstraints(
             Modifier
                 .fillMaxSize()
@@ -69,11 +66,7 @@ fun PokedexApp(
             val wide = maxWidth >= 840.dp
             when (val state = dex) {
                 Load.Loading -> LoadingState()
-                is Load.Failed -> ErrorState(
-                    message = state.message,
-                    onRetry = { reload++ },
-                    onUseDemo = if (demo) null else ({ demo = true }),
-                )
+                is Load.Failed -> ErrorState(message = state.message, onRetry = { reload++ })
                 is Load.Ready -> {
                     val entries = state.value
                     val typesByName = remember(entries) { entries.associate { it.name to it.types } }
@@ -161,9 +154,10 @@ private fun DetailPane(
         value = Load.Loading
         value = load { repository.loadDetail(name) }
     }
+    ReportLoad(detail)
     when (val state = detail) {
         Load.Loading -> LoadingState()
-        is Load.Failed -> ErrorState(state.message, onRetry = { reload++ }, onUseDemo = null)
+        is Load.Failed -> ErrorState(state.message, onRetry = { reload++ })
         is Load.Ready -> DetailScreen(
             detail = state.value,
             tab = tab,
@@ -184,7 +178,6 @@ private fun EmptyDetail() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically),
     ) {
-        CreatureArt(seed = 7, types = listOf(PokeType.Normal), modifier = Modifier.size(160.dp))
         Text(
             "Pick a Pokémon to see its stats, abilities, evolutions and type matchups.",
             style = MaterialTheme.typography.bodyLarge,

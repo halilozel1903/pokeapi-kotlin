@@ -33,11 +33,11 @@ chain.flatten().map { it.name to it.condition }  // [(charmander, null), (charme
 
 ## Screenshots
 
-Captured from the sample app on Android emulators by CI. The screenshot scenes load bundled JSON fixtures and draw original creatures in place of artwork, so they never depend on the network and this repository contains no official Pokémon artwork. In normal use the app loads the live API and the official artwork.
+Captured live from PokeAPI by CI, with the sample app on Android emulators. Names, types, stats, evolutions and the official artwork are real data loaded from pokeapi.co and PokeAPI's sprites repository during the run.
 
 | Grid with search and type filters | Base stats and type matchups | Branching evolution chain |
 | :---: | :---: | :---: |
-| <img src="docs/screenshots/phone-grid.png" alt="A two column grid of Kanto Pokémon cards tinted by type, with a search field and a row of type filter chips" width="250"> | <img src="docs/screenshots/phone-detail.png" alt="Charizard's detail screen: header with types, base stat bars and type matchups showing Rock as a 4x weakness" width="250"> | <img src="docs/screenshots/phone-evolution.png" alt="Eevee's evolution tab: Eevee above a grid of its eight evolutions, each with its evolution condition" width="250"> |
+| <img src="docs/screenshots/phone-grid.png" alt="A two column grid of Kanto Pokémon cards with their official artwork, starting with Bulbasaur, Ivysaur and Venusaur, tinted by type, with a search field and a row of type filter chips" width="250"> | <img src="docs/screenshots/phone-detail.png" alt="Pikachu's detail screen: header with its official artwork and Electric type, base stat bars and type matchups showing Ground as a weakness" width="250"> | <img src="docs/screenshots/phone-evolution.png" alt="Eevee's evolution tab: Eevee above a grid of its eight evolutions with their official artwork" width="250"> |
 
 **Tablet:** grid and detail side by side, here Bulbasaur's profile and abilities.
 
@@ -45,7 +45,7 @@ Captured from the sample app on Android emulators by CI. The screenshot scenes l
 
 | Grid, dark | Stats, dark | Evolution, dark | Tablet, dark |
 | :---: | :---: | :---: | :---: |
-| <img src="docs/screenshots/phone-grid-dark.png" alt="The grid in dark mode" width="180"> | <img src="docs/screenshots/phone-detail-dark.png" alt="Charizard's stats in dark mode" width="180"> | <img src="docs/screenshots/phone-evolution-dark.png" alt="Eevee's evolution chain in dark mode" width="180"> | <img src="docs/screenshots/tablet-pokedex-dark.png" alt="The tablet layout in dark mode" width="300"> |
+| <img src="docs/screenshots/phone-grid-dark.png" alt="The grid in dark mode" width="180"> | <img src="docs/screenshots/phone-detail-dark.png" alt="Pikachu's stats in dark mode" width="180"> | <img src="docs/screenshots/phone-evolution-dark.png" alt="Eevee's evolution chain in dark mode" width="180"> | <img src="docs/screenshots/tablet-pokedex-dark.png" alt="The tablet layout in dark mode" width="300"> |
 
 ## Features
 
@@ -251,7 +251,7 @@ EvolutionChainView(chain.chain, columns = 3) { stage ->          // a row for li
 
 ## Sample app
 
-The `sample` module is a Pokédex: the Kanto Pokédex in a grid tinted by type, search by name or number, filters for one or two types, and a detail screen with the Pokédex entry, profile, abilities (hidden ones marked), base stats, type matchups and the evolution chain (tap a stage to open it). On tablets grid and detail sit side by side. It uses the live API with a memory and disk cache, OkHttp as the Ktor engine and Coil for artwork, and offers bundled demo data when it cannot reach PokeAPI.
+The `sample` module is a Pokédex: the Kanto Pokédex in a grid tinted by type, search by name or number, filters for one or two types, and a detail screen with the Pokédex entry, profile, abilities (hidden ones marked), base stats, type matchups and the evolution chain (tap a stage to open it). On tablets grid and detail sit side by side. It uses the live API with a memory and disk cache, OkHttp as the Ktor engine and Coil for artwork.
 
 For screenshots it opens a fixed screen from an intent extra (used by `scripts/screenshots.sh`):
 
@@ -260,7 +260,7 @@ For screenshots it opens a fixed screen from an intent extra (used by `scripts/s
 adb shell am start -n io.github.halilozel1903.pokeapi.sample/.MainActivity --es scene detail
 ```
 
-`scene` is one of `grid`, `detail` (Charizard's stats and matchups), `evolution` (Eevee's evolutions) or `tablet` (grid and Bulbasaur side by side). These scenes read the same JSON fixtures as the unit tests and draw original creatures instead of artwork. CI captures the phone scenes on a Pixel 7 and `tablet` on a Pixel Tablet in landscape, in light and dark mode, checks each capture for the screen's text and fails on blank images.
+`scene` is one of `grid` (the Kanto grid from Bulbasaur), `detail` (Pikachu's stats and matchups), `evolution` (Eevee's evolutions) or `tablet` (grid and Bulbasaur side by side). Scenes load live data through the same client as a normal launch, and log `SCENE_READY` once the data and every artwork image on screen have loaded. CI captures the phone scenes on a Pixel 7 and `tablet` on a Pixel Tablet in landscape, in light and dark mode, and fails instead of capturing when a scene shows an error, does not finish loading, misses the expected text or is blank.
 
 ## Be nice to PokeAPI
 
@@ -280,7 +280,7 @@ Kotlin 2.4 · Ktor 3.6 (CIO, OkHttp) · kotlinx.serialization · kotlinx.corouti
 
 ## Legal
 
-Pokémon and Pokémon character names are trademarks of Nintendo, Creatures Inc. and Game Freak. This project is not affiliated with or endorsed by them. Data comes from [PokeAPI](https://pokeapi.co); sprite urls point to PokeAPI's sprites repository. This repository does not include official Pokémon artwork: the screenshots show creatures drawn by the sample app.
+Pokémon and Pokémon character names are trademarks of Nintendo, Creatures Inc. and Game Freak. This project is not affiliated with or endorsed by them. Data comes from [PokeAPI](https://pokeapi.co); sprite urls point to PokeAPI's sprites repository. The screenshots show data and official artwork loaded from PokeAPI; this repository does not otherwise include Pokémon artwork.
 
 ## License
 

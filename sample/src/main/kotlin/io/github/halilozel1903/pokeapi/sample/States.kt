@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -46,7 +45,7 @@ fun LoadingState(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun ErrorState(message: String, onRetry: () -> Unit, onUseDemo: (() -> Unit)?, modifier: Modifier = Modifier) {
+fun ErrorState(message: String, onRetry: () -> Unit, modifier: Modifier = Modifier) {
     Column(
         modifier
             .fillMaxSize()
@@ -62,8 +61,5 @@ fun ErrorState(message: String, onRetry: () -> Unit, onUseDemo: (() -> Unit)?, m
             textAlign = TextAlign.Center,
         )
         Button(onClick = onRetry) { Text("Try again") }
-        if (onUseDemo != null) {
-            OutlinedButton(onClick = onUseDemo) { Text("Use offline demo data") }
-        }
     }
 }

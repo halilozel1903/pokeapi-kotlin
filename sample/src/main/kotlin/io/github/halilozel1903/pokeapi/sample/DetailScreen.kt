@@ -36,6 +36,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import io.github.halilozel1903.pokeapi.PokeApiNames
+import io.github.halilozel1903.pokeapi.PokeApiSprites
 import io.github.halilozel1903.pokeapi.compose.BaseStats
 import io.github.halilozel1903.pokeapi.compose.EvolutionChainView
 import io.github.halilozel1903.pokeapi.compose.TypeChip
@@ -111,9 +112,8 @@ private fun DetailHeader(detail: PokemonDetail, onBack: (() -> Unit)?) {
                 )
             }
             PokemonImage(
-                id = pokemon.id,
+                url = pokemon.officialArtworkUrl,
                 name = detail.species.localizedName(),
-                types = types,
                 modifier = Modifier.size(176.dp),
             )
             Text(
@@ -348,9 +348,8 @@ private fun EvolutionNode(stage: EvolutionStage, types: List<PokeType>, current:
             contentAlignment = Alignment.Center,
         ) {
             PokemonImage(
-                id = stage.id ?: 0,
+                url = stage.id?.let { PokeApiSprites.officialArtwork(it) },
                 name = PokeApiNames.prettify(stage.name),
-                types = types,
                 modifier = Modifier
                     .fillMaxWidth(0.82f)
                     .aspectRatio(1f),

@@ -59,7 +59,7 @@ jobs:
           avd-name: tablet
           script: bash scripts/screenshots.sh tablet
       - name: Capture phone screenshots
-        # The grid, Charizard's stats and Eevee's evolution chain, light and dark.
+        # The grid, Pikachu's stats and Eevee's evolution chain, light and dark.
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 35

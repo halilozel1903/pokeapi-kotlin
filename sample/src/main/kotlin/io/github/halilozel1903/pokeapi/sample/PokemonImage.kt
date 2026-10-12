@@ -5,44 +5,76 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.drawscope.Stroke
 import coil3.compose.AsyncImage
-import io.github.halilozel1903.pokeapi.PokeApiSprites
-import io.github.halilozel1903.pokeapi.types.PokeType
+import coil3.compose.AsyncImagePainter
+import kotlinx.coroutines.delay
 
-/** `true` when the app shows bundled demo data: images are then drawn creatures instead of downloaded artwork. */
-val LocalDemoArtwork = staticCompositionLocalOf { false }
+/** How often a failed image is requested again before it counts as failed. */
+private const val ImageRetries = 3
 
 /**
- * The official artwork from PokeAPI's sprite repository, built from the id with [PokeApiSprites] so the grid needs
- * no request per Pokémon. In demo mode a drawn creature takes its place.
+ * A Pokémon's official artwork, loaded with Coil from [url]: `sprites.other["official-artwork"]` of a `/pokemon`
+ * response, or the same url built from the id with `PokeApiSprites.officialArtwork` where only a resource list was
+ * loaded. A plain ring stands in while it loads; a failed load is retried a few times. Screenshot scenes wait until
+ * every one of these has loaded.
  */
 @Composable
-fun PokemonImage(id: Int, name: String, types: List<PokeType>, modifier: Modifier = Modifier) {
-    if (LocalDemoArtwork.current) {
-        CreatureArt(seed = id, types = types, modifier = modifier, contentDescription = name)
-        return
+fun PokemonImage(url: String?, name: String, modifier: Modifier = Modifier) {
+    val monitor = LocalSceneMonitor.current
+    var attempt by remember(url) { mutableIntStateOf(0) }
+    var status by remember(url) { mutableStateOf(if (url.isNullOrEmpty()) ImageStatus.Failed else ImageStatus.Loading) }
+    if (monitor != null) {
+        val id = remember { Any() }
+        DisposableEffect(monitor, id) { onDispose { monitor.image(id, null) } }
+        // snapshotFlow starts with the current value, so a load that finished before this effect ran still counts.
+        // A failure that will be retried still counts as loading.
+        LaunchedEffect(monitor, id, url) {
+            snapshotFlow {
+                if (status == ImageStatus.Failed && !url.isNullOrEmpty() && attempt < ImageRetries) ImageStatus.Loading else status
+            }.collect { monitor.image(id, it) }
+        }
     }
-    var loaded by remember(id) { mutableStateOf(false) }
+    if (status == ImageStatus.Failed && !url.isNullOrEmpty() && attempt < ImageRetries) {
+        LaunchedEffect(url, attempt) {
+            delay(1_000L shl attempt)
+            status = ImageStatus.Loading
+            attempt++
+        }
+    }
     Box(modifier, contentAlignment = Alignment.Center) {
-        if (!loaded) {
+        if (status != ImageStatus.Loaded) {
             val color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f)
             Canvas(Modifier.fillMaxSize()) {
                 drawCircle(color, radius = size.minDimension * 0.3f, style = Stroke(width = size.minDimension * 0.06f))
             }
         }
-        AsyncImage(
-            model = PokeApiSprites.officialArtwork(id),
-            contentDescription = name,
-            modifier = Modifier.fillMaxSize(),
-            onSuccess = { loaded = true },
-        )
+        if (!url.isNullOrEmpty()) {
+            key(url, attempt) {
+                AsyncImage(
+                    model = url,
+                    contentDescription = name,
+                    modifier = Modifier.fillMaxSize(),
+                    onState = { state ->
+                        status = when (state) {
+                            is AsyncImagePainter.State.Success -> ImageStatus.Loaded
+                            is AsyncImagePainter.State.Error -> ImageStatus.Failed
+                            else -> ImageStatus.Loading
+                        }
+                    },
+                )
+            }
+        }
     }
 }

@@ -43,6 +43,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import io.github.halilozel1903.pokeapi.PokeApiNames
+import io.github.halilozel1903.pokeapi.PokeApiSprites
 import io.github.halilozel1903.pokeapi.compose.TypeChip
 import io.github.halilozel1903.pokeapi.compose.color
 import io.github.halilozel1903.pokeapi.types.PokeType
@@ -191,9 +192,8 @@ fun PokemonCard(entry: DexEntry, selected: Boolean, onClick: () -> Unit, modifie
                 drawCircle(ring, radius = size.minDimension * 0.46f, style = Stroke(width = size.minDimension * 0.07f))
             }
             PokemonImage(
-                id = entry.id,
+                url = PokeApiSprites.officialArtwork(entry.id),
                 name = entry.displayName,
-                types = entry.types,
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(4.dp),

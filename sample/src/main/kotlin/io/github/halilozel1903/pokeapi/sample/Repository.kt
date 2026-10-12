@@ -11,17 +11,12 @@ import io.github.halilozel1903.pokeapi.model.EvolutionChain
 import io.github.halilozel1903.pokeapi.model.Pokemon
 import io.github.halilozel1903.pokeapi.model.PokemonSpecies
 import io.github.halilozel1903.pokeapi.model.localized
-import io.github.halilozel1903.pokeapi.transport.FixtureTransport
-import io.github.halilozel1903.pokeapi.transport.PokeApiTransport
 import io.github.halilozel1903.pokeapi.types.PokeType
 import io.ktor.client.engine.okhttp.OkHttp
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.withContext
 import java.io.File
-import java.io.IOException
 
 /** One cell of the grid. */
 data class DexEntry(val id: Int, val name: String, val types: List<PokeType>) {
@@ -39,8 +34,14 @@ data class PokemonDetail(
     val abilities: List<AbilityInfo>,
 )
 
-/** The sample's only data source; every request goes through [PokeApiClient] and its cache. */
-class PokedexRepository(private val client: PokeApiClient, val isDemo: Boolean) {
+/**
+ * The sample's only data source: the live PokeAPI. Every request goes through [PokeApiClient], its retries and its
+ * cache.
+ *
+ * When [strict], a failing extra section (the evolution chain, an ability) fails the whole screen instead of being
+ * left out. Screenshot scenes use this, so a half loaded screen fails CI rather than ending up in the README.
+ */
+class PokedexRepository(private val client: PokeApiClient, private val strict: Boolean = false) {
 
     /** The Kanto Pokédex with each Pokémon's types: one list request and 18 type requests. */
     suspend fun loadDex(): List<DexEntry> = coroutineScope {
@@ -60,6 +61,7 @@ class PokedexRepository(private val client: PokeApiClient, val isDemo: Boolean) 
             try {
                 client.evolutionChain(species)
             } catch (e: PokeApiException) {
+                if (strict) throw e
                 null
             }
         }
@@ -68,6 +70,7 @@ class PokedexRepository(private val client: PokeApiClient, val isDemo: Boolean) 
                 val ability = try {
                     client.ability(slot.ability.name)
                 } catch (e: PokeApiException) {
+                    if (strict) throw e
                     null
                 }
                 AbilityInfo(
@@ -85,36 +88,26 @@ class PokedexRepository(private val client: PokeApiClient, val isDemo: Boolean) 
     }
 }
 
-/** One repository for the live API and one for the bundled fixtures, created on first use. */
+/** The app's repositories, created on first use. */
 object Repositories {
     private var live: PokedexRepository? = null
-    private var demo: PokedexRepository? = null
+    private var scenes: PokedexRepository? = null
 
-    @Synchronized
-    fun live(context: Context): PokedexRepository = live ?: PokedexRepository(
-        PokeApiClient {
-            engine = OkHttp.create()
-            cache = PokeApiCache.memory() + PokeApiCache.disk(File(context.cacheDir, "pokeapi"))
-            userAgent = "pokeapi-kotlin-sample/1.0.0 (+https://github.com/halilozel1903/pokeapi-kotlin)"
-        },
-        isDemo = false,
-    ).also { live = it }
+    private fun client(context: Context, retries: Int) = PokeApiClient {
+        // Shares OkHttp with Coil.
+        engine = OkHttp.create()
+        cache = PokeApiCache.memory() + PokeApiCache.disk(File(context.cacheDir, "pokeapi"))
+        userAgent = "pokeapi-kotlin-sample/1.0.0 (+https://github.com/halilozel1903/pokeapi-kotlin)"
+        this.retries = retries
+    }
 
+    /** Normal use: a failing extra section is left out. */
     @Synchronized
-    fun demo(context: Context): PokedexRepository = demo ?: run {
-        val assets = context.applicationContext.assets
-        val fixtures = FixtureTransport { path ->
-            try {
-                assets.open("fixtures/$path").bufferedReader().use { it.readText() }
-            } catch (e: IOException) {
-                null
-            }
-        }
-        PokedexRepository(
-            PokeApiClient {
-                transport = PokeApiTransport { url -> withContext(Dispatchers.IO) { fixtures.get(url) } }
-            },
-            isDemo = true,
-        )
-    }.also { demo = it }
+    fun live(context: Context): PokedexRepository =
+        live ?: PokedexRepository(client(context.applicationContext, retries = 2)).also { live = it }
+
+    /** Screenshot scenes: more retries for a busy CI network, and every section must load. */
+    @Synchronized
+    fun scenes(context: Context): PokedexRepository =
+        scenes ?: PokedexRepository(client(context.applicationContext, retries = 4), strict = true).also { scenes = it }
 }
